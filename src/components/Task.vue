@@ -1,13 +1,19 @@
 <template>
   <div class="taskContainer">
-    <input
-      type="checkbox"
-      name="isFinished"
-      :checked="isFinished ? true : false"
-      @click="changeIsFinishedValue(id, isFinished)"
-    />
-    <TaskTitle :id="id" :title="title" />
-    <button class="btn btn-danger" @click="deleteTask(id)">Delete</button>
+    <!-- <tr>
+      <td> -->
+        <input
+          type="checkbox"
+          name="isFinished"
+          :checked="$store.state.task ? true : false"
+          @click="changeIsFinishedValue(id, isFinished)"
+        />
+        <TaskTitle :task="task"/>
+      <!-- </td>
+      <td> -->
+        <button class="btn btn-danger" @click="deleteTask(id)">Delete</button>
+      <!-- </td>
+    </tr> -->
   </div>
 </template>
 
@@ -21,40 +27,38 @@ export default {
     TaskTitle,
   },
   props: {
-    id: Number,
-    title: String,
-    isFinished: Boolean
-
+    task: Object
   },
   methods: {
     async deleteTask(id) {
       try {
         await taskService.deleteTask(id);
-
       } catch (e) {
         console.error(e);
       }
     },
     async changeIsFinishedValue(id, isFinished) {
-      if (isFinished) {
+      console.log($store.state.task);
+
+      /* if (isFinished) {
         isFinished = false;
         try {
           await taskService.updateIsFinishedValue(id, isFinished);
-
         } catch (e) {
           console.error(e);
-        } return;
+        }
+        return;
       }
       if (!isFinished) {
         isFinished = true;
         try {
           await taskService.updateIsFinishedValue(id, isFinished);
-
         } catch (e) {
           console.error(e);
-        } return;
-      }
-    }
+        }
+        return; 
+      }*/
+    },
   },
 };
 </script>

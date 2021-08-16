@@ -3,8 +3,8 @@
     <input
       type="text"
       class="form-control inputUpdate"
-      :value="title"
-      @blur="hideInputUpdate(title)"
+      :value="taskTitle"
+      @blur="hideInputUpdate(taskTitle)"
       @keyup.enter="updateTaskTitle(id)"
       autofocus="true"
     />
@@ -20,15 +20,15 @@ export default {
   name: "InputUpdate",
   props: {
     id: Number,
-    title: String,
+    taskTitle: String,
   },
   methods: {
-    hideInputUpdate(title) {
+    hideInputUpdate(taskTitle) {
       let getInputUpdate = document.querySelector(".inputUpdate");
 
       let TaskTitleComponent = Vue.extend(TaskTitle);
       let TaskTitleInstance = new TaskTitleComponent({
-        propsData: { title: title },
+        propsData: { taskTitle: taskTitle },
       });
 
       TaskTitleInstance.$mount(getInputUpdate);

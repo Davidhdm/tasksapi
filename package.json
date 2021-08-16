@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "json-server": "json-server --watch src/assets/data/tasks.json"
+    "json-server": "json-server --watch src/data/tasks.json"
   },
   "dependencies": {
     "axios": "^0.21.1",
