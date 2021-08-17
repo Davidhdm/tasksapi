@@ -3,26 +3,26 @@
     <input
       type="text"
       class="form-control inputUpdate"
-      :value="taskTitle"
+      :value="'asdf'"
       @blur="hideInputUpdate(taskTitle)"
-      @keyup.enter="updateTaskTitle(id)"
+      @keyup.enter="testfn"
       autofocus="true"
     />
   </div>
+  
 </template>
 
 <script>
 import { taskService } from "@/services/taskService.js";
 import TaskTitle from "@/components/TaskTitle.vue";
-import Vue from "vue";
+import store from "@/store/index.js";
 
 export default {
   name: "InputUpdate",
-  props: {
-    id: Number,
-    taskTitle: String,
-  },
   methods: {
+    testfn() {
+      console.log(this.$store.state);
+    },
     hideInputUpdate(taskTitle) {
       let getInputUpdate = document.querySelector(".inputUpdate");
 
@@ -44,5 +44,9 @@ export default {
       }
     },
   },
+  mounted() {
+    this.$store.state.task = 'hola';
+    console.log(this.$store.state.task);
+  }
 };
 </script>

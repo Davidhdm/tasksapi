@@ -1,7 +1,6 @@
 <template>
   <div class="taskContainer">
-    <!-- <tr>
-      <td> -->
+    
         <input
           type="checkbox"
           name="isFinished"
@@ -9,11 +8,9 @@
           @click="changeIsFinishedValue(id, isFinished)"
         />
         <TaskTitle :task="task"/>
-      <!-- </td>
-      <td> -->
-        <button class="btn btn-danger" @click="deleteTask(id)">Delete</button>
-      <!-- </td>
-    </tr> -->
+      
+        <button class="btn btn-danger" @click="deleteTask(task.id)">Delete</button>
+      
   </div>
 </template>
 
@@ -30,12 +27,8 @@ export default {
     task: Object
   },
   methods: {
-    async deleteTask(id) {
-      try {
-        await taskService.deleteTask(id);
-      } catch (e) {
-        console.error(e);
-      }
+    deleteTask(id) {
+      this.$store.dispatch('deleteTaskAction', id);
     },
     async changeIsFinishedValue(id, isFinished) {
       console.log($store.state.task);

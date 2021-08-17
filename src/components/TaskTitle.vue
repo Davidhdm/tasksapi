@@ -1,5 +1,5 @@
 <template>
-  <p class="taskName" @dblclick="showInputUpdate(task.id, task.title)">{{ task.title }}</p>
+  <p class="taskName" @dblclick="showInputUpdate(task)">{{ task.title }}</p>
 </template>
 
 <script>
@@ -9,22 +9,24 @@ import InputUpdate from "@/components/InputUpdate.vue";
 export default {
   name: "TaskTitle",
   props: {
-    task: Object
+    task: Object,
   },
   methods: {
-    showInputUpdate(id, taskTitle) {
-      let getParagraphs = document.querySelectorAll(".taskName");
+    showInputUpdate(task) {
+      this.$store.state.task = task;
+      this.$store.dispatch('showInputUpdateAction');
+      /* let getParagraphs = document.querySelectorAll(".taskName");
 
       getParagraphs.forEach((paragraph) => {
-        if (paragraph.innerHTML === taskTitle) {
+        if (paragraph.innerHTML === task.title) {
           let inputUpdateComponent = Vue.extend(InputUpdate);
           let inputUpdateInstance = new inputUpdateComponent({
-            propsData: { 'id': id, 'taskTitle': taskTitle },
+            propsData: { id: id, taskTitle: taskTitle },
           });
-
+          this.$store.state.task = task;
           inputUpdateInstance.$mount(paragraph);
         }
-      });
+      }); */
     },
   },
 };
