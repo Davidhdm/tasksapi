@@ -1,0 +1,43 @@
+POST http://localhost:3001/api/tasks 
+Content-Type: application/json
+
+{
+  "title": "Nueva tarea creada con REST Client"
+}
+
+###
+
+POST http://localhost:3001/api/tasks 
+Content-Type: application/json
+
+{
+  "title": "Nueva tarea creada con REST Client",
+  "isFinished": true
+}
+
+###
+
+POST http://localhost:3001/api/tasks 
+Content-Type: application/json
+
+{
+  "title": "Nueva tarea creada con REST Client",
+  "isFinished": false
+}
+
+###
+
+POST http://localhost:3001/api/tasks 
+Content-Type: application/json
+
+{
+  "title": ""
+}
+
+###
+
+POST http://localhost:3001/api/tasks 
+Content-Type: application/json
+
+{
+}

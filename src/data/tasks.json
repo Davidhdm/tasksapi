@@ -17,17 +17,7 @@
     },
     {
       "id": 4,
-      "title": "Task 6",
-      "isFinished": true
-    },
-    {
-      "id": 5,
-      "title": "Task 7",
-      "isFinished": false
-    },
-    {
-      "id": 6,
-      "title": "Task 9",
+      "title": "Task 4",
       "isFinished": true
     }
   ]
